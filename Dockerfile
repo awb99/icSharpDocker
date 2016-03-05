@@ -17,7 +17,7 @@ RUN echo "deb http://download.mono-project.com/repo/debian wheezy/snapshots/3.12
 	&& rm -rf /var/lib/apt/lists/*
 
 #2.  Jupyter
-RUN apt-get install python python-pip python-dev libzmq-dev
+RUN apt-get install -y python python-pip python-dev libzmq-dev
 # mv jupyter jupytertest    The PIP installer will install to /usr/local/bin/jupyter
 RUN pip install jupyter
 

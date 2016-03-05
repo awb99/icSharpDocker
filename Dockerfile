@@ -4,7 +4,14 @@ RUN echo "hello word"
 
 USER root
 
-# 1.  MONO
+
+#  Jupyter
+RUN apt-get install -y python python-pip python-dev libzmq-dev
+# mv jupyter jupytertest    The PIP installer will install to /usr/local/bin/jupyter
+RUN pip install jupyter
+
+
+# MONO
 RUN apt-get update \
 	&& apt-get install -y curl wget \
 	&& rm -rf /var/lib/apt/lists/*
@@ -16,16 +23,7 @@ RUN echo "deb http://download.mono-project.com/repo/debian wheezy/snapshots/3.12
 	&& apt-get install -y mono-devel ca-certificates-mono fsharp mono-vbnc nuget \
 	&& rm -rf /var/lib/apt/lists/*
 
-#2.  Jupyter
-RUN apt-get install -y wget
-# UN wget https://3230d63b5fc54e62148e-c95ac804525aac4b6dba79b00b39d1d3.ssl.cf1.rackcdn.com/Anaconda-2.3.0-Linux-x86_64.sh
-# RUN bash Anaconda-2.3.0-Linux-x86_64.sh
-# RUN conda update jupyter 
 
-
-RUN apt-get install -y python python-pip python-dev libzmq-dev
-# mv jupyter jupytertest    The PIP installer will install to /usr/local/bin/jupyter
-RUN pip install jupyter
 
 
 EXPOSE 8899

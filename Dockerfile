@@ -1,4 +1,4 @@
-FROM debian:wheezy
+FROM ubuntu
 
 RUN echo "hello word" 
 

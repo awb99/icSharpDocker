@@ -10,7 +10,7 @@ RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E03280
 # write the echoed line into the file on the right
 RUN echo "deb http://download.mono-project.com/repo/debian wheezy main" | tee /etc/apt/sources.list.d/mono-xamarin.list
 # update packets - this installs mono..
-RUN sudo apt-get update -y
+RUN apt-get update -y
 # The package mono-complete should be installed to install everything - this should cover most cases of “assembly not found” errors.
 RUN apt-get install mono-complete -y
 # mono-dbg -  has the .mdb files which mono uses for stack traces in managed code... so that exceptions are logged properly.

@@ -1,9 +1,6 @@
 FROM ubuntu
 
-RUN echo "hello word" 
-
 USER root
-
 
 #  Jupyter
 RUN apt-get install -y python python-pip python-dev libzmq-dev

@@ -8,7 +8,7 @@ RUN apt-get update \
     && apt-get update
 
 #  Jupyter
-RUN apt-get install -y python python-pip python-dev libzmq-dev
+RUN apt-get install -y python python-pip python2.7-dev libzmq-dev
 # mv jupyter jupytertest    The PIP installer will install to /usr/local/bin/jupyter
 RUN pip install jupyter
 

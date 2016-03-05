@@ -4,6 +4,7 @@ RUN echo "hello word"
 
 USER root
 
+# 1.  MONO
 RUN apt-get update \
 	&& apt-get install -y curl \
 	&& rm -rf /var/lib/apt/lists/*
@@ -14,5 +15,11 @@ RUN echo "deb http://download.mono-project.com/repo/debian wheezy/snapshots/3.12
 	&& apt-get update \
 	&& apt-get install -y mono-devel ca-certificates-mono fsharp mono-vbnc nuget \
 	&& rm -rf /var/lib/apt/lists/*
+
+#2.  Jupyter
+RUN apt-get install python python-pip python-dev libzmq-dev
+# mv jupyter jupytertest    The PIP installer will install to /usr/local/bin/jupyter
+RUN pip install jupyter
+
 
 EXPOSE 8899

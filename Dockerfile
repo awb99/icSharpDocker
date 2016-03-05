@@ -2,6 +2,7 @@ FROM debian:jessie
 
 USER root
 
+# contrib packages not contained in nomral jessie install.This means most required packages will not be found.
 RUN echo "deb http://http.us.debian.org/debian jessie main contrib non-free"  > /etc/apt/sources.list
 RUN apt-get update \
     && apt-get update

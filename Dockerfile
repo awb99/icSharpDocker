@@ -8,7 +8,7 @@ USER root
 # add debian repository
 RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
 # write the echoed line into the file on the right
-RUN echo "deb http://download.mono-project.com/repo/debian wheezy main" | sudo tee /etc/apt/sources.list.d/mono-xamarin.list
+RUN echo "deb http://download.mono-project.com/repo/debian wheezy main" | tee /etc/apt/sources.list.d/mono-xamarin.list
 # update packets - this installs mono..
 RUN sudo apt-get update -y
 # The package mono-complete should be installed to install everything - this should cover most cases of “assembly not found” errors.

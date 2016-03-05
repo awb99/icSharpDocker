@@ -1,4 +1,4 @@
-FROM debian/stable
+FROM debian
 
 RUN echo "hello word" 
 

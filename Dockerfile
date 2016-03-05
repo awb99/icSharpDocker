@@ -1,6 +1,8 @@
-FROM ubuntu
+FROM debian:jessie
 
 USER root
+
+echo "deb http://http.us.debian.org/debian jessie main contrib non-free"  > /etc/apt/sources.list
 
 #  Jupyter
 RUN apt-get install -y python 

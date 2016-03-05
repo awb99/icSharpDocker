@@ -3,6 +3,8 @@ FROM debian:jessie
 USER root
 
 RUN echo "deb http://http.us.debian.org/debian jessie main contrib non-free"  > /etc/apt/sources.list
+RUN apt-get update \
+    && apt-get update
 
 #  Jupyter
 RUN apt-get install -y python 

@@ -16,12 +16,12 @@ RUN apt-get install -y python python-pip libzmq-dev
 
 
 # mono (from debian user repositories; gets installed to /opt/mono/)
-apt-get install  wget
-echo 'deb http://download.opensuse.org/repositories/home:/tpokorra:/mono/Debian_8.0/ /' >> /etc/apt/sources.list.d/mono-opt.list 
-wget http://download.opensuse.org/repositories/home:tpokorra:mono/Debian_8.0/Release.key
-apt-key add - < Release.key  
-apt-get update
-apt-get install mono-opt
+RUN apt-get install -y wget
+RUN echo 'deb http://download.opensuse.org/repositories/home:/tpokorra:/mono/Debian_8.0/ /' >> /etc/apt/sources.list.d/mono-opt.list 
+RUN wget http://download.opensuse.org/repositories/home:tpokorra:mono/Debian_8.0/Release.key
+RUN apt-key add - < Release.key  
+RUN apt-get update \
+    && apt-get install -y mono-opt
 
 #RUN apt-get update \
 #	&& apt-get install -y curl wget \

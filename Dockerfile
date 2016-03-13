@@ -9,8 +9,8 @@ RUN echo "deb http://http.us.debian.org/debian jessie main contrib non-free"  > 
 RUN apt-get update \
     && apt-get update
 
-RUN apt-get install -y aptitude wget curl \
- && aptitude install git
+RUN apt-get install -y  wget curl \
+
 
 #  Jupyter
 #RUN apt-get install -y libc6-dev 

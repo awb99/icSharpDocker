@@ -2,7 +2,7 @@ FROM debian:jessie
 
 USER root
 
-RUN apt-get install -y git-core
+RUN apt-get install -y git
 
 # contrib packages not contained in normal jessie install.This means most required packages will not be found.
 RUN echo "deb http://http.us.debian.org/debian jessie main contrib non-free"  > /etc/apt/sources.list

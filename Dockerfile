@@ -14,8 +14,8 @@ RUN apt-get install -y python python-pip libzmq-dev
 # mv jupyter jupytertest    The PIP installer will install to /usr/local/bin/jupyter
 #RUN pip install jupyter
 
-
-# mono (from debian user repositories; gets installed to /opt/mono/)
+# mono (from opensuse user repositories; gets installed to /opt/mono/)
+# debian user repos formono have a very old mono version
 RUN apt-get install -y wget
 RUN echo 'deb http://download.opensuse.org/repositories/home:/tpokorra:/mono/Debian_8.0/ /' >> /etc/apt/sources.list.d/mono-opt.list 
 RUN wget http://download.opensuse.org/repositories/home:tpokorra:mono/Debian_8.0/Release.key

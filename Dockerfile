@@ -23,6 +23,17 @@ RUN apt-key add - < Release.key
 RUN apt-get update \
     && apt-get install -y mono-opt
 
+
+# comile icsharp (the awb version)
+RUN git clone https://github.com/awb99/icsharp.git \
+    && mono ./.nuget/NuGet.exe restore ./ScriptCs.sln \
+    && xbuild ./iCSharp.sln /property:Configuration=Release /nologo /verbosity:normal
+#Executable is under:  icsharp/Kernel/bin/Release
+# mono Kernel/bin/Release/iCSharp.Kernel.exe     will show the aruments not provided; the compilation of iCSharp worked.
+
+# install engine
+ADD /kernel.json /icsharp
+
 #RUN apt-get update \
 #	&& apt-get install -y curl wget \
 #	&& rm -rf /var/lib/apt/lists/*

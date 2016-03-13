@@ -2,7 +2,7 @@ FROM debian:jessie
 
 USER root
 
-# contrib packages not contained in nomral jessie install.This means most required packages will not be found.
+# contrib packages not contained in normal jessie install.This means most required packages will not be found.
 RUN echo "deb http://http.us.debian.org/debian jessie main contrib non-free"  > /etc/apt/sources.list
 RUN apt-get update \
     && apt-get update
@@ -15,7 +15,14 @@ RUN apt-get install -y python python-pip libzmq-dev
 #RUN pip install jupyter
 
 
-# MONO
+# mono (from debian user repositories; gets installed to /opt/mono/)
+apt-get install  wget
+echo 'deb http://download.opensuse.org/repositories/home:/tpokorra:/mono/Debian_8.0/ /' >> /etc/apt/sources.list.d/mono-opt.list 
+wget http://download.opensuse.org/repositories/home:tpokorra:mono/Debian_8.0/Release.key
+apt-key add - < Release.key  
+apt-get update
+apt-get install mono-opt
+
 #RUN apt-get update \
 #	&& apt-get install -y curl wget \
 #	&& rm -rf /var/lib/apt/lists/*

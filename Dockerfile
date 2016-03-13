@@ -25,7 +25,7 @@ RUN apt-get update \
 
 
 # comile icsharp (the awb version)
-RUN apt-get install -y wget \
+RUN apt-get install -y git \
     && git clone https://github.com/awb99/icsharp.git \
     && mono ./.nuget/NuGet.exe restore ./ScriptCs.sln \
     && xbuild ./iCSharp.sln /property:Configuration=Release /nologo /verbosity:normal

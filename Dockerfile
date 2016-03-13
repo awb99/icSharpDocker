@@ -2,14 +2,14 @@ FROM debian:jessie
 
 USER root
 
-RUN apt-get install -y git
+#RUN apt-get install -y git
 
 # contrib packages not contained in normal jessie install.This means most required packages will not be found.
 RUN echo "deb http://http.us.debian.org/debian jessie main contrib non-free"  > /etc/apt/sources.list
 RUN apt-get update \
     && apt-get update
 
-RUN apt-get install -y  wget curl
+RUN apt-get install -y git wget curl
 
 #  Jupyter
 #RUN apt-get install -y libc6-dev 

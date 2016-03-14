@@ -2,7 +2,7 @@
 
 cd /home/condauser/icsharp \
  && . /opt/mono/env.sh \
- && mono ./.nuget/NuGet.exe restore ./ScriptCs.sln \
+ && mono ./.nuget/NuGet.exe restore ./icSharp.sln \
  && xbuild ./iCSharp.sln /property:Configuration=Release /nologo /verbosity:normal
 
 #Executable is under:  /home/condauser/icsharp/Kernel/bin/Release

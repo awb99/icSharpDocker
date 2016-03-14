@@ -28,15 +28,15 @@ RUN cd /tmp \
     && apt-key add - < Release.key  \
     && apt-get update \
     && apt-get install -y mono-opt \
-    && /opt/mono/env.sh
+    && bash /opt/mono/env.sh
 
 # compile icsharp
 RUN mkdir /home/condauser/ \
     &&  cd /home/condauser
 COPY /build_icsharp.sh /home/condauser/
 RUN cd /home/condauser \
-    && git clone https://github.com/awb99/icsharp.git 
-  #  && /home/condauser/build_icsharp.sh
+    && git clone https://github.com/awb99/icsharp.git \
+    && bash /home/condauser/build_icsharp.sh
 
 
 # install engine

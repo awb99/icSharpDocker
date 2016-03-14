@@ -34,7 +34,8 @@ RUN cd /tmp \
 RUN mkdir /home/condauser/ \
     &&  cd /home/condauser
 COPY /build_icsharp.sh /home/condauser/
-RUN git clone https://github.com/awb99/icsharp.git 
+RUN cd /home/condauser \
+    && git clone https://github.com/awb99/icsharp.git 
   #  && /home/condauser/build_icsharp.sh
 
 

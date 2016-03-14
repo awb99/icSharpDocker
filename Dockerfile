@@ -8,8 +8,7 @@ USER root
 RUN echo "deb http://http.us.debian.org/debian jessie main contrib non-free"  > /etc/apt/sources.list
 RUN apt-get update \
     && apt-get update \
-    && apt-get install -y  wget curl \
-
+    && apt-get install -y  wget curl
 
 #  Jupyter
 #RUN apt-get install -y libc6-dev 

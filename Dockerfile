@@ -27,6 +27,7 @@ RUN wget http://download.opensuse.org/repositories/home:tpokorra:mono/Debian_8.0
 RUN apt-key add - < Release.key  
 RUN apt-get update \
     && apt-get install -y mono-opt
+RUN /opt/mono/env.sh
 
 # compile icsharp
 RUN mkdir /home/condauser/

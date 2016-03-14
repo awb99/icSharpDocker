@@ -27,8 +27,8 @@ RUN cd /tmp \
     && wget http://download.opensuse.org/repositories/home:tpokorra:mono/Debian_8.0/Release.key  \
     && apt-key add - < Release.key  \
     && apt-get update \
-    && apt-get install -y mono-opt \
-    && bash /opt/mono/env.sh
+    && apt-get install -y mono-opt 
+RUN . /opt/mono/env.sh
 
 # compile icsharp
 RUN mkdir /home/condauser/ \
@@ -36,7 +36,7 @@ RUN mkdir /home/condauser/ \
 COPY /build_icsharp.sh /home/condauser/
 RUN cd /home/condauser \
     && git clone https://github.com/awb99/icsharp.git \
-    && bash /home/condauser/build_icsharp.sh
+    && . /home/condauser/build_icsharp.sh
 
 
 # install engine

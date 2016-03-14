@@ -1,6 +1,6 @@
 # compile icsharp (the awb version)
 
-cd icsharp \
+cd /home/condauser/icsharp \
  && . /opt/mono/env.sh \
  && mono ./.nuget/NuGet.exe restore ./ScriptCs.sln \
  && xbuild ./iCSharp.sln /property:Configuration=Release /nologo /verbosity:normal

@@ -23,21 +23,22 @@ RUN apt-get install -y python python-pip libzmq-dev
 # debian user repos formono have a very old mono version
 RUN apt-get install -y wget
 RUN echo 'deb http://download.opensuse.org/repositories/home:/tpokorra:/mono/Debian_8.0/ /' >> /etc/apt/sources.list.d/mono-opt.list 
-RUN wget http://download.opensuse.org/repositories/home:tpokorra:mono/Debian_8.0/Release.key
-RUN apt-key add - < Release.key  
-RUN apt-get update \
-    && apt-get install -y mono-opt
-RUN /opt/mono/env.sh
+RUN cd /tmp \
+    && wget http://download.opensuse.org/repositories/home:tpokorra:mono/Debian_8.0/Release.key  \
+    && apt-key add - < Release.key  \
+    && apt-get update \
+    && apt-get install -y mono-opt \
+    && /opt/mono/env.sh
 
 # compile icsharp
 RUN mkdir /home/condauser/
-ADD /build_icsharp.sh /home/condauser
+ADD /build_icsharp.sh /home/condauser/
 RUN git clone https://github.com/awb99/icsharp.git \
     && /home/condauser/build_icsharp.sh
 
 
 # install engine
-ADD /kernel.json /icsharp
+ADD /kernel.json /home/condauser/
 
 
 

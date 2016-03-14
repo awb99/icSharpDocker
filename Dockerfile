@@ -31,7 +31,8 @@ RUN apt-get update \
 # compile icsharp
 RUN mkdir /home/condauser/
 ADD /build_icsharp.sh /home/condauser
-RUN /home/condauser/build_icsharp.sh
+RUN git clone https://github.com/awb99/icsharp.git \
+    && /home/condauser/build_icsharp.sh
 
 
 # install engine

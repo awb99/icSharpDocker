@@ -1,8 +1,7 @@
 # compile icsharp (the awb version)
 
-cd icsharp
-
-. /opt/mono/env.sh \
+cd icsharp \
+ && . /opt/mono/env.sh \
  && mono ./.nuget/NuGet.exe restore ./ScriptCs.sln \
  && xbuild ./iCSharp.sln /property:Configuration=Release /nologo /verbosity:normal
 

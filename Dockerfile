@@ -31,10 +31,10 @@ RUN cd /tmp \
 RUN . /opt/mono/env.sh
 
 # compile icsharp
+RUN echo "now building icsharp from source"
 RUN mkdir /home/condauser/ \
     &&  cd /home/condauser
 COPY /build_icsharp2.sh /home/condauser/
-RUN echo "now building icsharp from source"
 RUN cd /home/condauser \
     && git clone https://github.com/awb99/icsharp.git \
     && . /home/condauser/build_icsharp2.sh

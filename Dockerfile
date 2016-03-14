@@ -7,9 +7,8 @@ USER root
 # contrib packages not contained in normal jessie install.This means most required packages will not be found.
 RUN echo "deb http://http.us.debian.org/debian jessie main contrib non-free"  > /etc/apt/sources.list
 RUN apt-get update \
-    && apt-get update
-
-RUN apt-get install -y  wget curl \
+    && apt-get update \
+    && apt-get install -y  wget curl \
 
 
 #  Jupyter

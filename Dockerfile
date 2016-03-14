@@ -6,18 +6,23 @@ USER root
 RUN apt-get update \
     && apt-get install -y git
 
+#  Jupyter
+#RUN apt-get install -y libc6-dev 
+RUN apt-get install -y \
+            python \
+            python-pip \ 
+            libzmq-dev \
+            python2.7-dev 
+# mv jupyter jupytertest    The PIP installer will install to /usr/local/bin/jupyter
+#RUN pip install jupyter
+
+
 # contrib packages not contained in normal jessie install.This means most required packages will not be found.
 RUN echo "deb http://http.us.debian.org/debian jessie main contrib non-free"  > /etc/apt/sources.list
 RUN apt-get update \
     && apt-get update \
     && apt-get install -y  wget curl
 
-#  Jupyter
-#RUN apt-get install -y libc6-dev 
-RUN apt-get install -y python python-pip libzmq-dev 
-#python2.7-dev 
-# mv jupyter jupytertest    The PIP installer will install to /usr/local/bin/jupyter
-#RUN pip install jupyter
 
 # mono (from opensuse user repositories; gets installed to /opt/mono/)
 # debian user repos formono have a very old mono version

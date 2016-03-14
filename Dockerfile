@@ -30,6 +30,9 @@ RUN cd /tmp \
     && apt-get install -y mono-opt 
 RUN . /opt/mono/env.sh
 
+# mozilla root certificates so that http requests do work
+RUN mozroots --import --sync
+
 # compile icsharp
 RUN echo "now building icsharp from source"
 RUN mkdir /home/condauser/ \

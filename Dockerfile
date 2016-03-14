@@ -31,14 +31,15 @@ RUN cd /tmp \
     && /opt/mono/env.sh
 
 # compile icsharp
-RUN mkdir /home/condauser/
-ADD /build_icsharp.sh /home/condauser/
+RUN mkdir /home/condauser/ \
+    &&  cd /home/condauser
+COPY /build_icsharp.sh /home/condauser/
 RUN git clone https://github.com/awb99/icsharp.git \
     && /home/condauser/build_icsharp.sh
 
 
 # install engine
-ADD /kernel.json /home/condauser/
+COPY /kernel.json /home/condauser/
 
 
 
